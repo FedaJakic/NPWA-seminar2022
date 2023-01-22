@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Product = ({ game }) => {
   return (
-    <Card>
-      <Link to={`/game/${game._id}`}>
+    <Card bg="primary" style={{ width: "20rem", margin: "0 0 2rem 0" }}>
+      <Link to={`/igre/${game._id}`}>
         <Card.Img src={game.image} variant="top" />
       </Link>
 
@@ -16,7 +16,7 @@ const Product = ({ game }) => {
           </Card.Title>
         </Link>
 
-        <Card.Text as="h3">{game.price}</Card.Text>
+        <Card.Text as="h3">{game.price} €</Card.Text>
       </Card.Body>
     </Card>
   );
