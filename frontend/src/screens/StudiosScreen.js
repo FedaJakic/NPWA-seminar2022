@@ -1,11 +1,11 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import Studio from "../components/Studio";
 import gameStudios from "../gameStudios";
 
 const StudiosScreen = () => {
   return (
-    <>
+    <Container>
       <h1>Studia</h1>
       <Row>
         {gameStudios.map((studio) => (
@@ -14,7 +14,7 @@ const StudiosScreen = () => {
           </Col>
         ))}
       </Row>
-    </>
+    </Container>
   );
 };
 

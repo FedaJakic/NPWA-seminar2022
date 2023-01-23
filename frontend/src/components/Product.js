@@ -1,16 +1,16 @@
 import React from "react";
-import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
 
 const Product = ({ game }) => {
   return (
-    <Card bg="primary" style={{ width: "20rem", margin: "0 0 2rem 0" }}>
-      <Link to={`/igre/${game._id}`}>
+    <Card className="my-3 p-3 rounded" bg="primary">
+      <Link to={`/igra/${game._id}`}>
         <Card.Img src={game.image} variant="top" />
       </Link>
 
       <Card.Body>
-        <Link to={`/igre/${game._id}`}>
+        <Link to={`/igra/${game._id}`}>
           <Card.Title as="h4">
             <strong>{game.name}</strong>
           </Card.Title>

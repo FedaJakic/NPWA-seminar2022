@@ -1,11 +1,11 @@
 import React from "react";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 import boardGames from "../boardGames";
 import Product from "../components/Product";
 
-const GameScreen = () => {
+const GamesScreen = () => {
   return (
-    <>
+    <Container>
       <h1>Društvene igre</h1>
       <Row>
         {boardGames.map((boardGame) => (
@@ -14,8 +14,8 @@ const GameScreen = () => {
           </Col>
         ))}
       </Row>
-    </>
+    </Container>
   );
 };
 
-export default GameScreen;
+export default GamesScreen;
