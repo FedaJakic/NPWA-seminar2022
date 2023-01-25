@@ -1,6 +1,5 @@
 const boardGames = [
   {
-    _id: "1",
     name: "Splendor Duel",
     image: "/images/games/SplendorDuel.jpg",
     description:
@@ -9,7 +8,6 @@ const boardGames = [
     price: 29.07,
   },
   {
-    _id: "2",
     name: "Splendor",
     image: "/images/games/Splendor.jpg",
     description:
@@ -18,7 +16,6 @@ const boardGames = [
     price: 39.68,
   },
   {
-    _id: "3",
     name: "Monopoly Travel World Tour",
     image: "/images/games/Monopoly.jpg",
     description:
@@ -27,7 +24,6 @@ const boardGames = [
     price: 39.68,
   },
   {
-    _id: "4",
     name: "Monopoly Game of Thrones Collectors Edition",
     image: "/images/games/Monopoly_Game_of_Thrones.jpg",
     description:
@@ -36,7 +32,6 @@ const boardGames = [
     price: 33.05,
   },
   {
-    _id: "5",
     name: "Codenames Duet",
     image: "/images/games/CodenamesDuet.jpg",
     description:
@@ -45,7 +40,6 @@ const boardGames = [
     price: 27.5,
   },
   {
-    _id: "6",
     name: "The Game",
     image: "/images/games/The_Game.jpg",
     description:
@@ -54,7 +48,6 @@ const boardGames = [
     price: 11.81,
   },
   {
-    _id: "7",
     name: "illusion",
     image: "/images/games/Illusion.jpg",
     description:
@@ -63,7 +56,6 @@ const boardGames = [
     price: 11.81,
   },
   {
-    _id: "8",
     name: "The Mind",
     image: "/images/games/TheMind.jpg",
     description:
@@ -72,7 +64,6 @@ const boardGames = [
     price: 11.81,
   },
   {
-    _id: "9",
     name: "Settlers of Catan",
     image: "/images/games/Catan.jpg",
     description:
@@ -81,7 +72,6 @@ const boardGames = [
     price: 39.68,
   },
   {
-    _id: "10",
     name: "Settlers of Catan ekspanzija Pomorci",
     image: "/images/games/CatanPomorci.jpeg",
     description:
@@ -90,7 +80,6 @@ const boardGames = [
     price: 35.72,
   },
   {
-    _id: "11",
     name: "7 Wonders",
     image: "/images/games/7Wonders.jpg",
     description:
@@ -99,7 +88,6 @@ const boardGames = [
     price: 52.96,
   },
   {
-    _id: "12",
     name: "7 Wonders Duel",
     image: "/images/games/7WondersDuel.jpg",
     description:
@@ -108,7 +96,6 @@ const boardGames = [
     price: 52.96,
   },
   {
-    _id: "13",
     name: "Azul Summer Pavilion",
     image: "/images/games/AzulSummerPavilion.jpg",
     description:
@@ -117,7 +104,6 @@ const boardGames = [
     price: 48.91,
   },
   {
-    _id: "14",
     name: "Scrabble",
     image: "/images/games/Scrabble.jpg",
     description:
@@ -126,7 +112,6 @@ const boardGames = [
     price: 29.07,
   },
   {
-    _id: "15",
     name: "Pandemic",
     image: "/images/games/Pandemic.jpg",
     description:
@@ -135,7 +120,6 @@ const boardGames = [
     price: 56.94,
   },
   {
-    _id: "16",
     name: "Jenga",
     image: "/images/games/Jenga.jpg",
     description:
@@ -144,7 +128,6 @@ const boardGames = [
     price: 23.76,
   },
   {
-    _id: "17",
     name: "Activity",
     image: "/images/games/Activity.jpg",
     description:
@@ -153,7 +136,6 @@ const boardGames = [
     price: 33.05,
   },
   {
-    _id: "18",
     name: "Alias",
     image: "/images/games/Alias.jpeg",
     description:
@@ -162,7 +144,6 @@ const boardGames = [
     price: 21.07,
   },
   {
-    _id: "19",
     name: "Clue",
     image: "/images/games/Clue.jpg",
     description:
@@ -171,7 +152,6 @@ const boardGames = [
     price: 10.48,
   },
   {
-    _id: "20",
     name: "Squid Game",
     image: "/images/games/SquidGame.jpg",
     description:
@@ -180,7 +160,6 @@ const boardGames = [
     price: 29.07,
   },
   {
-    _id: "21",
     name: "Photosynthesis",
     image: "/images/games/Photosynthesis.jpg",
     description:

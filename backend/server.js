@@ -1,9 +1,13 @@
 import express from "express";
 import dotenv from "dotenv";
-import boardGames from "./data/boardGames.js";
-import gameStudios from "./data/gameStudios.js";
+import connectDB from "./config/db.js";
+
+import boardGamesRoutes from "./routes/boardGamesRoutes.js";
+import gameStudiosRoutes from "./routes/gameStudiosRoutes.js";
 
 dotenv.config();
+
+connectDB();
 
 const app = express();
 
@@ -11,18 +15,9 @@ app.get("/", (req, res) => {
   res.send("API TEST");
 });
 
-app.get("/api/board-games", (req, res) => {
-  res.json(boardGames);
-});
+app.use("/api/board-games", boardGamesRoutes);
 
-app.get("/api/board-games/:id", (req, res) => {
-  const game = boardGames.find((p) => p._id === req.params.id);
-  res.json(game);
-});
-
-app.get("/api/game-studios", (req, res) => {
-  res.json(gameStudios);
-});
+app.get("/api/game-studios", gameStudiosRoutes);
 
 const PORT = process.env.PORT || 5000;
 

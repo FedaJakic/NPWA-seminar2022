@@ -2,6 +2,9 @@ root
 
 npm i -D nodemon concurrently - nodemon is for not always restarting server
 npm i dotenv - enviroment variables
+npm i mongoose
+npm i bcryptjs - for password encription
+npm i express-async-handler - for better routing
 
 Frontend
 
