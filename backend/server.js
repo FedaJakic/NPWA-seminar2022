@@ -17,7 +17,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/board-games", boardGamesRoutes);
 
-app.get("/api/game-studios", gameStudiosRoutes);
+app.use("/api/game-studios", gameStudiosRoutes);
 
 const PORT = process.env.PORT || 5000;
 
