@@ -16,9 +16,9 @@ const LoginScreen = () => {
         password: password,
       });
       sessionStorage.setItem("name", data.name);
+      sessionStorage.setItem("isAdmin", data.isAdmin);
       history.push("/");
       window.location.reload();
-      console.log("login = " + sessionStorage.getItem("name"));
     } catch (error) {
       if (
         error.response &&

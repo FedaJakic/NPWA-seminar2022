@@ -3,11 +3,11 @@ import { LinkContainer } from "react-router-bootstrap";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 
 const Header = () => {
-  console.log("header = " + sessionStorage.getItem("name"));
   const logoutHandler = () => {
     sessionStorage.clear();
     window.location.reload();
   };
+
   return (
     <header>
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -29,27 +29,37 @@ const Header = () => {
                 <Nav.Link>About Us</Nav.Link>
               </LinkContainer>
             </Nav>
-            {sessionStorage.getItem("name") === null ? (
-              <Nav>
+            <Nav>
+              {sessionStorage.getItem("name") === null ? (
                 <LinkContainer to="login">
                   <Nav.Link>Log In</Nav.Link>
                 </LinkContainer>
-              </Nav>
-            ) : (
-              <Nav>
+              ) : sessionStorage.getItem("isAdmin") == "false" ? (
                 <NavDropdown
                   title={`Hello, ${sessionStorage.getItem("name")}`}
                   id="username"
                 >
-                  <LinkContainer to="/profile">
-                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : (
+                <NavDropdown
+                  title={`Hello, ${sessionStorage.getItem("name")}`}
+                  id="username"
+                >
+                  <LinkContainer to="/board-game-panel">
+                    <NavDropdown.Item>Board game panel</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/studios-panel">
+                    <NavDropdown.Item>Studios panel</NavDropdown.Item>
                   </LinkContainer>
                   <NavDropdown.Item onClick={logoutHandler}>
                     Logout
                   </NavDropdown.Item>
                 </NavDropdown>
-              </Nav>
-            )}
+              )}
+            </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
