@@ -1,8 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import axios from "axios";
 
 const LoginScreen = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const { data } = await axios.post("/api/users/login", {
+        email: email,
+        password: password,
+      });
+      sessionStorage.setItem("name", data.name);
+      history.push("/");
+      window.location.reload();
+      console.log("login = " + sessionStorage.getItem("name"));
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        alert(error.message);
+      }
+    }
+  };
+
   return (
     <div>
       <Container>
@@ -14,12 +41,17 @@ const LoginScreen = () => {
                   <h2 className="fw-bold mb-2 text-uppercase ">Log In</h2>
                   <p className=" mb-5">Please enter your email and password!</p>
                   <div className="mb-3">
-                    <Form>
+                    <Form onSubmit={handleSubmit}>
                       <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label className="text-center">
                           Email address
                         </Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control
+                          type="email"
+                          placeholder="Enter email"
+                          value={email}
+                          onChange={(event) => setEmail(event.target.value)}
+                        />
                       </Form.Group>
 
                       <Form.Group
@@ -27,10 +59,19 @@ const LoginScreen = () => {
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control
+                          type="password"
+                          placeholder="Password"
+                          value={password}
+                          onChange={(event) => setPassword(event.target.value)}
+                        />
                       </Form.Group>
                       <div className="d-grid">
-                        <Button variant="primary" type="submit">
+                        <Button
+                          variant="primary"
+                          type="submit"
+                          onClick={(event) => handleSubmit(event)}
+                        >
                           Login
                         </Button>
                       </div>
@@ -39,7 +80,7 @@ const LoginScreen = () => {
                       <p className="mb-0  text-center">
                         Don't have an account?{" "}
                         <Link to="signup" className="text-primary fw-bold">
-                          Sign Up
+                          Log In
                         </Link>
                       </p>
                     </div>
