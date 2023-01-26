@@ -6,6 +6,8 @@ import HomeScreen from "./screens/HomeScreen";
 import GamesScreen from "./screens/GamesScreen";
 import StudiosScreen from "./screens/StudiosScreen";
 import ProductScreen from "./screens/ProductScreen";
+import LoginScreen from "./screens/LoginScreen";
+import SignupScreen from "./screens/SignupScreen";
 
 function App() {
   return (
@@ -16,6 +18,9 @@ function App() {
         <Route path="/igre" component={GamesScreen} />
         <Route path="/igra/:id" component={ProductScreen} />
         <Route path="/studio" component={StudiosScreen} />
+
+        <Route path="/login" component={LoginScreen} />
+        <Route path="/signup" component={SignupScreen} />
       </main>
       <Footer />
     </Router>
