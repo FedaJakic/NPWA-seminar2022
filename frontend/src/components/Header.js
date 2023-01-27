@@ -1,9 +1,13 @@
 import React from "react";
 import { LinkContainer } from "react-router-bootstrap";
+import { useHistory } from "react-router-dom";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 
 const Header = () => {
+  const history = useHistory();
+
   const logoutHandler = () => {
+    history.push("/");
     sessionStorage.clear();
     window.location.reload();
   };

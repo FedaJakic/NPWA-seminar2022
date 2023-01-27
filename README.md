@@ -6,6 +6,7 @@ npm i mongoose
 npm i bcryptjs - for password encription
 npm i express-async-handler - for better routing
 npm i jsonwebtoken
+npm i multer - for image upload
 
 Frontend
 
