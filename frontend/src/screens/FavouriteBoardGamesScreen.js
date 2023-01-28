@@ -1,12 +1,11 @@
 import React, { useContext } from "react";
-import { GlobalContext } from "../context/GlobalState";
+import { GlobalContextFavourites } from "../context/GloablStateFavourites";
 import { Link } from "react-router-dom";
 import { Row, Col, ListGroup, Image, Container, Button } from "react-bootstrap";
 
 const FavouriteBoardGamesScreen = () => {
-  const { favouriteList } = useContext(GlobalContext);
-  const { removeBoardGameFromFavourite } = useContext(GlobalContext);
-
+  const { favouriteList } = useContext(GlobalContextFavourites);
+  const { removeBoardGameFromFavourite } = useContext(GlobalContextFavourites);
   const deleteHandler = (boardGame) => {
     removeBoardGameFromFavourite(boardGame);
   };

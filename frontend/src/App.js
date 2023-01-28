@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import { GlobalProvider } from "./context/GlobalState.js";
+import { GlobalProviderFavourites } from "./context/GloablStateFavourites.js";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import AboutUsScreen from "./screens/AboutUsScreen.js";
@@ -24,28 +25,33 @@ function App() {
     <Router>
       <Header />
       <main>
-        <GlobalProvider>
-          <Route path="/" component={HomeScreen} exact />
-          <Route path="/igre" component={GamesScreen} />
-          <Route path="/igra/:id" component={ProductScreen} />
-          <Route path="/studio" component={StudiosScreen} />
-          <Route path="/about" component={AboutUsScreen} />
+        <GlobalProviderFavourites>
+          <GlobalProvider>
+            <Route path="/" component={HomeScreen} exact />
+            <Route path="/igre" component={GamesScreen} />
+            <Route path="/igra/:id" component={ProductScreen} />
+            <Route path="/studio" component={StudiosScreen} />
+            <Route path="/about" component={AboutUsScreen} />
 
-          <Route path="/login" component={LoginScreen} />
-          <Route path="/signup" component={SignupScreen} />
+            <Route path="/login" component={LoginScreen} />
+            <Route path="/signup" component={SignupScreen} />
 
-          <Route path="/studios-panel" component={StudiosListScreen} />
-          <Route path="/studio-edit/:id" component={StudiosEditScreen} />
+            <Route path="/studios-panel" component={StudiosListScreen} />
+            <Route path="/studio-edit/:id" component={StudiosEditScreen} />
 
-          <Route path="/board-game-panel" component={BoardGameListScreen} />
-          <Route path="/boardgame-edit/:id" component={BoardGameEditScreen} />
+            <Route path="/board-game-panel" component={BoardGameListScreen} />
+            <Route path="/boardgame-edit/:id" component={BoardGameEditScreen} />
 
-          <Route path="/create-studio" component={StudioCreateScreen} />
-          <Route path="/create-board-game" component={BoardGameCreateScreen} />
+            <Route path="/create-studio" component={StudioCreateScreen} />
+            <Route
+              path="/create-board-game"
+              component={BoardGameCreateScreen}
+            />
 
-          <Route path="/cart" component={CartScreen} />
-          {/* <Route path="/favourite" component={FavouriteBoardGamesScreen} /> */}
-        </GlobalProvider>
+            <Route path="/cart" component={CartScreen} />
+            <Route path="/favourite" component={FavouriteBoardGamesScreen} />
+          </GlobalProvider>
+        </GlobalProviderFavourites>
       </main>
       <Footer />
     </Router>

@@ -54,7 +54,6 @@ const BoardGameCreateScreen = ({ match }) => {
         price: price,
       });
       history.push("/board-game-panel");
-      console.log(data);
       alert("Successful Add new Board Game");
     } catch (error) {
       if (

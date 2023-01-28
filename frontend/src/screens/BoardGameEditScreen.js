@@ -64,7 +64,6 @@ const BoardGameEditScreen = ({ match }) => {
         price: price,
       });
       history.push("/board-game-panel");
-      console.log(data);
       alert("Successful Update");
     } catch (error) {
       if (

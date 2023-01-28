@@ -38,7 +38,6 @@ const StudioCreateScreen = ({ match }) => {
         description: description,
       });
       history.push("/studios-panel");
-      console.log(data);
       alert("Successful Add new Studio");
     } catch (error) {
       if (

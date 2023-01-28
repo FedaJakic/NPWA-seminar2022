@@ -18,7 +18,6 @@ const SignupScreen = () => {
         password: password,
       });
       history.push("/login");
-      console.log(data);
       alert("Successful SingUp");
     } catch (error) {
       if (

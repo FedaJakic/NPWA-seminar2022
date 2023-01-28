@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { GlobalContext } from "../context/GlobalState";
+import { GlobalContextFavourites } from "../context/GloablStateFavourites";
 import { Link } from "react-router-dom";
 import {
   Row,
@@ -15,7 +16,7 @@ import axios from "axios";
 const ProductScreen = ({ match }) => {
   const [boardGame, setBoardGame] = useState([]);
   const { addBoardGameToCart } = useContext(GlobalContext);
-  const { addBoardGameToFavourite } = useContext(GlobalContext);
+  const { addBoardGameToFavourite } = useContext(GlobalContextFavourites);
 
   useEffect(() => {
     const fetchBoardGame = async () => {

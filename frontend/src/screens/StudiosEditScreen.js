@@ -16,7 +16,6 @@ const StudiosEditScreen = ({ match }) => {
       setName(data.name);
       setImage(data.image);
       setDescription(data.description);
-      console.log(data);
     };
 
     fetchGameStudio();
@@ -51,7 +50,6 @@ const StudiosEditScreen = ({ match }) => {
         description: description,
       });
       history.push("/studios-panel");
-      console.log(data);
       alert("Successful Update");
     } catch (error) {
       if (

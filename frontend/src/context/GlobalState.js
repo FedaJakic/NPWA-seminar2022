@@ -28,7 +28,6 @@ export const GlobalProvider = ({ children }) => {
     <GlobalContext.Provider
       value={{
         boardGameList: state.boardGameList,
-        favouriteList: state.favouriteList,
         addBoardGameToCart,
         removeBoardGameFromCart,
       }}
