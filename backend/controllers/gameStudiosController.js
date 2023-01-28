@@ -60,9 +60,42 @@ const deleteGameStudio = asyncHandler(async (req, res) => {
   }
 });
 
+// @desc    Register a new user
+// @route   POST /api/game-studio/add
+// @access  Private/Admin
+const addNewStudio = asyncHandler(async (req, res) => {
+  const { name, image, description } = req.body;
+
+  const studioExist = await GameStudios.findOne({ name });
+
+  if (studioExist) {
+    res.status(400);
+    throw new Error("Studio already exists");
+  }
+
+  const studio = await GameStudios.create({
+    name,
+    image,
+    description,
+  });
+
+  if (studio) {
+    res.status(201).json({
+      _id: studio._id,
+      name: studio.name,
+      image: studio.email,
+      description: studio.description,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid studio data");
+  }
+});
+
 export {
   getGameStudios,
   getGameStudioById,
   updateGameStudio,
   deleteGameStudio,
+  addNewStudio,
 };

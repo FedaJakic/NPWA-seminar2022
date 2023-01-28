@@ -76,14 +76,14 @@ const StudiosEditScreen = ({ match }) => {
               <Card.Body>
                 <div className="mb-3 mt-md-4">
                   <h2 className="fw-bold mb-2 text-uppercase ">Edit</h2>
-                  <p className=" mb-5">Uredite navedeni studio</p>
+                  <p className=" mb-5">Edit this Game Studio</p>
                   <div className="mb-3">
                     <Form onSubmit={handleSubmit}>
                       <Form.Group className="mb-3" controlId="name">
                         <Form.Label className="text-center">Name</Form.Label>
                         <Form.Control
                           type="email"
-                          placeholder="Enter your name"
+                          placeholder="Enter studio name"
                           value={name}
                           onChange={(event) => setName(event.target.value)}
                         />

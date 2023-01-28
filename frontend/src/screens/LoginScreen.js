@@ -80,7 +80,7 @@ const LoginScreen = () => {
                       <p className="mb-0  text-center">
                         Don't have an account?{" "}
                         <Link to="signup" className="text-primary fw-bold">
-                          Log In
+                          Sign Up
                         </Link>
                       </p>
                     </div>

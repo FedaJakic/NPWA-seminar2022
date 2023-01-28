@@ -4,6 +4,7 @@ import {
   getGameStudioById,
   updateGameStudio,
   deleteGameStudio,
+  addNewStudio,
 } from "../controllers/gameStudiosController.js";
 const router = expres.Router();
 
@@ -13,5 +14,6 @@ router
   .get(getGameStudioById)
   .put(updateGameStudio)
   .delete(deleteGameStudio);
+router.post("/add", addNewStudio);
 
 export default router;

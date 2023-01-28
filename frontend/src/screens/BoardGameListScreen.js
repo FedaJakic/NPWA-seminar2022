@@ -1,13 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import { Table, Button, Container } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { Table, Button, Container, Row, Col } from "react-bootstrap";
 import axios from "axios";
 
 const BoardGameListScreen = () => {
   const [boardGames, setBoardGame] = useState([]);
 
-  const deleteHandler = (id) => {
-    alert("Delete handler");
+  const deleteHandler = async (id) => {
+    try {
+      const { data } = await axios.delete(`/api/board-games/${id}`);
+      alert("Successful Delete");
+      window.location.reload();
+    } catch (error) {
+      if (
+        error.response &&
+        error.response.status >= 400 &&
+        error.response.status <= 500
+      ) {
+        alert(error.message);
+      }
+    }
   };
 
   useEffect(() => {
@@ -24,6 +37,14 @@ const BoardGameListScreen = () => {
       {sessionStorage.getItem("isAdmin") == "true" ? (
         <Container>
           <h1>Board Games</h1>
+          <Row className="align-items-center">
+            <Col className="text-right">
+              <Button className="my-3">
+                <i className="fas fa-plus"></i>{" "}
+                <Link to={"/create-board-game"}>Create Board Game</Link>
+              </Button>
+            </Col>
+          </Row>
           <Table
             striped
             bordered
@@ -62,7 +83,6 @@ const BoardGameListScreen = () => {
               ))}
             </tbody>
           </Table>
-          )
         </Container>
       ) : (
         <Container>

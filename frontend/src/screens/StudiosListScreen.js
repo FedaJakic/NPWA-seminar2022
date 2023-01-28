@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { LinkContainer } from "react-router-bootstrap";
-import { useHistory } from "react-router-dom";
-import { Table, Button, Container } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
+import { Table, Button, Container, Col, Row } from "react-bootstrap";
 import axios from "axios";
 
 const StudiosListScreen = () => {
@@ -38,6 +38,14 @@ const StudiosListScreen = () => {
       {sessionStorage.getItem("isAdmin") == "true" ? (
         <Container>
           <h1>Studios</h1>
+          <Row className="align-items-center">
+            <Col className="text-right">
+              <Button className="my-3">
+                <i className="fas fa-plus"></i>{" "}
+                <Link to={"/create-studio"}>Create Studio</Link>
+              </Button>
+            </Col>
+          </Row>
           <Table
             striped
             bordered

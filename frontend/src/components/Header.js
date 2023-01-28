@@ -43,6 +43,16 @@ const Header = () => {
                   title={`Hello, ${sessionStorage.getItem("name")}`}
                   id="username"
                 >
+                  <LinkContainer to="/cart">
+                    <NavDropdown.Item>
+                      <i className="fas fa-shopping-cart"></i> Košara
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/favourite">
+                    <NavDropdown.Item>
+                      <i class="fa-regular fa-star"></i> Favourite
+                    </NavDropdown.Item>
+                  </LinkContainer>
                   <NavDropdown.Item onClick={logoutHandler}>
                     Logout
                   </NavDropdown.Item>
@@ -52,6 +62,16 @@ const Header = () => {
                   title={`Hello, ${sessionStorage.getItem("name")}`}
                   id="username"
                 >
+                  <LinkContainer to="/cart">
+                    <NavDropdown.Item>
+                      <i className="fas fa-shopping-cart"></i> Košara
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/favourite">
+                    <NavDropdown.Item>
+                      <i class="fa-regular fa-star"></i> Favourite
+                    </NavDropdown.Item>
+                  </LinkContainer>
                   <LinkContainer to="/board-game-panel">
                     <NavDropdown.Item>Board game panel</NavDropdown.Item>
                   </LinkContainer>

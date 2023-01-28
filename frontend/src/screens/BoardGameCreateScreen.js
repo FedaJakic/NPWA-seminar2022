@@ -3,34 +3,24 @@ import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
 
-const BoardGameEditScreen = ({ match }) => {
+const BoardGameCreateScreen = ({ match }) => {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [description, setDescription] = useState("");
   const [brand, setBrand] = useState("");
   const [price, setPrice] = useState();
   const [studios, setStudios] = useState([]);
+
   const history = useHistory();
 
   useEffect(() => {
-    const fetchGameStudio = async () => {
+    const fetchGameStudios = async () => {
       const { data } = await axios.get(`/api/game-studios`);
 
       setStudios(data);
     };
 
-    const fetchBoardGame = async () => {
-      const { data } = await axios.get(`/api/board-games/${match.params.id}`);
-
-      setName(data.name);
-      setImage(data.image);
-      setDescription(data.description);
-      setBrand(data.brand);
-      setPrice(data.price);
-    };
-
-    fetchGameStudio();
-    fetchBoardGame();
+    fetchGameStudios();
   }, []);
 
   const uploadFileHandler = async (e) => {
@@ -56,7 +46,7 @@ const BoardGameEditScreen = ({ match }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      const { data } = await axios.put(`/api/board-games/${match.params.id}`, {
+      const { data } = await axios.post("/api/board-games/add", {
         name: name,
         image: image,
         description: description,
@@ -65,7 +55,7 @@ const BoardGameEditScreen = ({ match }) => {
       });
       history.push("/board-game-panel");
       console.log(data);
-      alert("Successful Update");
+      alert("Successful Add new Board Game");
     } catch (error) {
       if (
         error.response &&
@@ -179,4 +169,4 @@ const BoardGameEditScreen = ({ match }) => {
   );
 };
 
-export default BoardGameEditScreen;
+export default BoardGameCreateScreen;

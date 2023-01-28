@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { GlobalContext } from "../context/GlobalState";
 import { Link } from "react-router-dom";
 import {
   Row,
@@ -13,6 +14,8 @@ import axios from "axios";
 
 const ProductScreen = ({ match }) => {
   const [boardGame, setBoardGame] = useState([]);
+  const { addBoardGameToCart } = useContext(GlobalContext);
+  const { addBoardGameToFavourite } = useContext(GlobalContext);
 
   useEffect(() => {
     const fetchBoardGame = async () => {
@@ -23,6 +26,16 @@ const ProductScreen = ({ match }) => {
 
     fetchBoardGame();
   }, [match]);
+
+  const addToCart = (event) => {
+    addBoardGameToCart(boardGame);
+    alert("Added to cart");
+  };
+
+  const addToFavourite = (event) => {
+    addBoardGameToFavourite(boardGame);
+    alert("Added to favourite");
+  };
 
   return (
     <Container>
@@ -57,8 +70,21 @@ const ProductScreen = ({ match }) => {
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>
-                <Button className="btn-block" type="button">
-                  Dodaj u košaricu
+                <Button
+                  className="btn-block"
+                  type="button"
+                  onClick={(event) => addToCart()}
+                >
+                  Add to Cart
+                </Button>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <Button
+                  className="btn-block"
+                  type="button"
+                  onClick={(event) => addToFavourite()}
+                >
+                  Add to Favourite
                 </Button>
               </ListGroup.Item>
             </ListGroup>
